@@ -136,11 +136,11 @@
       path: swap
 
   - name: install fixed kubelet-kubeadm config file (1.8 and later)
-    copy: src=10-kubeadm-post-1.8.conf dest=/etc/systemd/system/kubelet.service.d/10-kubeadm.conf owner=root group=root mode=644 backup=yes
+    copy: src=10-kubeadm-post-1.8.conf dest=/usr/lib/systemd/system/kubelet.service.d/10-kubeadm.conf owner=root group=root mode=644 backup=yes
   when: kube_ver.stdout | version_compare('1.8', '>=')
 
 - name: install fixed kubelet-kubeadm config file
-  copy: src=10-kubeadm.conf dest=/etc/systemd/system/kubelet.service.d/ owner=root group=root mode=644 backup=yes
+  copy: src=10-kubeadm.conf dest=/usr/lib/systemd/system/kubelet.service.d owner=root group=root mode=644 backup=yes
   when: kube_ver.stdout | version_compare('1.8', '<')
 
 - name: copy docker conf

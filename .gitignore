@@ -6,3 +6,4 @@ topology.json
 heketi-storage.json
 ssh-config
 heketi.json
+vagrant/*.vdi
